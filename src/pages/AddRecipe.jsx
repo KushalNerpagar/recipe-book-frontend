@@ -10,38 +10,8 @@ function AddRecipe() {
     const [image, setImage] = useState(null);
 
 
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         const res = await fetch('http://localhost:5000/add', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify({
-    //                 recipeName,
-    //                 author,
-    //                 description,
-    //                 steps,
-    //                 image
-    //             }),
-    //         });
-    //         const data = await res.json();
-    //         console.log(data);
-    //         setRecipeName("");
-    //         setAuthor("");
-    //         setDescription("");
-    //         setSteps("");
-    //         setImage("");
-    //     } catch (err) {
-    //         console.error(err);
-    //     }
-    // };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
         const formData = new FormData();
         formData.append('recipeName', recipeName);
         formData.append('author', author);
@@ -50,15 +20,14 @@ function AddRecipe() {
         formData.append('image', image);
     
         try {
-            const res = await fetch('http://localhost:5000/add', {
+            const res = await fetch('https://recipe-book-backend-2yg9.onrender.com/', {
                 method: 'POST',
-                body: formData, // Don't set Content-Type manually!
+                body: formData,
             });
     
             const data = await res.json();
             console.log(data);
     
-            // Clear form
             setRecipeName("");
             setAuthor("");
             setDescription("");
@@ -69,7 +38,6 @@ function AddRecipe() {
         }
     };
     
-
     return (
         <>
             <div className="min-h-screen bg-orange-50">
@@ -112,11 +80,6 @@ function AddRecipe() {
                                 className="w-full p-3 rounded-md border border-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-400 resize-none"
                             ></textarea>
                         </div>
-
-
-
-
-
                         <div>
                             <label className="block text-orange-400 font-semibold mb-1">Recipe Steps</label>
                             <textarea
@@ -127,12 +90,6 @@ function AddRecipe() {
                                 className="w-full p-3 rounded-md border border-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-400 resize-none"
                             ></textarea>
                         </div>
-
-
-
-
-
-
                         <div>
                             <label className="block text-orange-400 font-semibold mb-1">Upload Recipe Image</label>
                             <input

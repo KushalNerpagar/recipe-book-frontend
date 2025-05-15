@@ -16,7 +16,7 @@ const Modal = ({ isOpen, onClose, recipe }) => {
                 <p><strong>Steps:</strong> {recipe.steps}</p>
                 <div className="mt-4 text-right">
                     <button
-                        onClick={onClose}
+                        onClick={onClose}               
                         className="bg-orange-400 text-white p-3 rounded-lg font-bold w-[100px]"
                     >
                         Close
@@ -36,7 +36,7 @@ const Home = () => {
     useEffect(() => {
         const fetchRecipes = async () => {
             try {
-                const res = await fetch('http://localhost:5000/');
+                const res = await fetch('https://recipe-book-backend-2yg9.onrender.com/');
 
                 const contentType = res.headers.get("content-type");
                 if (contentType && contentType.includes("application/json")) {
@@ -86,7 +86,7 @@ const Home = () => {
                             <div className='h-40 bg-orange-100 rounded-lg mb-2 flex items-center justify-center overflow-hidden'>
                                 {recipe.image_url && (
                                     <img
-                                        src={`http://localhost:5000${recipe.image_url}`}
+                                        src={`https://recipe-book-backend-2yg9.onrender.com${recipe.image_url}`}
                                         alt={recipe.name}
                                         className="object-cover h-full w-full rounded-lg"
                                     />

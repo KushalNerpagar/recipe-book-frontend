@@ -22,7 +22,7 @@ const Navbar = () => {
         ))}
       </ul>
       <div className="logo">
-        <h1 className='font-extrabold mr-7 border border-4 p-3 rounded-full bg-orange-400'>E-Recipe-Book</h1>
+        <h1 className='font-extrabold mr-7 border border-4 p-3 rounded-full bg-orange-400'>Cook-Nest</h1>
       </div>
     </nav>
   );

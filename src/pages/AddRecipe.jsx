@@ -20,7 +20,7 @@ function AddRecipe() {
         formData.append('image', image);
     
         try {
-            const res = await fetch('https://recipe-book-backend-2yg9.onrender.com/add', {
+            const res = await fetch('https://recipe-book-backend-2yg9.onrender.com/', {
                 method: 'POST',
                 body: formData,
             });
